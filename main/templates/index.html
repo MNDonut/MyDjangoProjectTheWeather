@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <title>The Weather</title>
+</head>
+<body>
+    <nav>The Weather</nav>
+    <div class="wrapper">
+        <div class="form">
+            <h1>The weather in your city</h1>
+            <form action="" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button class='add' type="submit">Find</button><br><br>
+            <span class="error-message">{{ error }}</span>
+            </form>
+        </div>
+        <div class="display">
+            {% for city in cities %}
+            <div class="displayItem">
+                <div class="text">
+                    <span class='name'><span class='subtitle'>City:</span> <span class="info">{{ city.name }}</span></span><br>
+                    <span class='temp'><span class='subtitle'>Temperature:</span> <span class="info">{{ city.temp }}</span><sup>o</sup></span>
+                </div>
+                <img class='icon' src="http://openweathermap.org/img/wn/{{ city.icon }}.png" alt="">
+                <a href="{% url 'delete' name=city.name %}" class="delete">X</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

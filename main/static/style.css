@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: rgb(42, 42, 42);
+}
+
+h1, nav, input, sup, .add, .subtitle, .info, .delete, .error-message {
+    font-family: 'Rubik', sans-serif;
+}
+
+h1, nav, .add, .delete {
+    color: white;
+}
+
+sup, .info {
+    color:deepskyblue;
+}
+
+.add, .delete {
+    background-color: crimson;
+}
+
+.name, .temp, .icon, .info, .error-message {
+    font-size: 20px;
+}
+
+nav, .delete {
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    height: 2em;
+    font-size: 30px;
+    background-color: coral;
+    display: flex;
+}
+
+input {
+    width: 40%;
+    height: 2em;
+    padding-left: 2%;
+}
+
+form {
+    margin-top: 1em;
+}
+
+.add {
+    width: 10%;
+    height: 2.5em;
+    outline-style: none;
+    border: 2px solid rgb(200, 18, 55);
+    cursor: pointer;
+}
+
+.delete:hover {
+   font-size: 40px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.form {
+    text-align: center;
+    height: fit-content;
+    padding-top: 12em;
+}
+
+.display {
+    padding-top: 3em;
+}
+
+.text {
+    padding: 1em;
+}
+
+.displayItem {
+    grid-template-columns: 3fr 2fr 1fr;
+    display: grid;
+    grid-template-areas: "a c d"
+                         "b c d";
+    text-align: left;
+    margin-bottom: 1em;
+    background: rgb(54, 54, 54);
+}
+
+.name {
+    grid-area: a;
+}
+
+.temp {
+    grid-area: b;
+}
+
+.icon {
+    grid-area: c;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    width: 4em;
+    height: 4em;
+}
+
+.subtitle {
+    color:rgb(248, 131, 35);
+}
+
+.delete {
+    grid-area: d;
+    outline-style: none;
+    text-decoration: none;
+    border: 1px;
+    display: flex;
+    border: 2px solid rgb(200, 18, 55);
+    cursor: pointer;
+    font-size: 36px;
+    transition: 0.5s ease-in-out;
+}
+
+.error-message {
+    color: rgb(238, 6, 53);
+}
